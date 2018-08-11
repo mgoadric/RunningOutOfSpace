@@ -1,9 +1,11 @@
 ﻿<Properties StartupConfiguration="{21E648D3-A9B4-C901-FED9-36FAD3A92D50}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SplineController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SplineController.cs">
     <Files>
-      <File FileName="Assets/SplineController.cs" Line="1" Column="1" />
-      <File FileName="Assets/SplineInterpolator.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Luggage.cs" Line="13" Column="22" />
+      <File FileName="Assets/Scripts/LuggageMaker.cs" Line="19" Column="10" />
+      <File FileName="Assets/Scripts/BeltPiece.cs" Line="7" Column="22" />
+      <File FileName="Assets/Scripts/SplineController.cs" Line="21" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

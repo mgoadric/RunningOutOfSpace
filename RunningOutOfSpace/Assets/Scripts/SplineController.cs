@@ -18,6 +18,7 @@ public class SplineController : MonoBehaviour
 	public bool AutoClose = true;
 	public bool HideOnExecute = true;
     public bool Reverse = false;
+    public int level = 0;
 
 	Transform[] mTransforms;
 

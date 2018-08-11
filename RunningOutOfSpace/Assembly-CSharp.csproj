@@ -61,6 +61,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BeltPiece.cs" />
+    <Compile Include="Assets\Scripts\Luggage.cs" />
+    <Compile Include="Assets\Scripts\LuggageMaker.cs" />
     <Compile Include="Assets\Scripts\MathUtils.cs" />
     <Compile Include="Assets\Scripts\SplineController.cs" />
     <Compile Include="Assets\Scripts\SplineInterpolator.cs" />
