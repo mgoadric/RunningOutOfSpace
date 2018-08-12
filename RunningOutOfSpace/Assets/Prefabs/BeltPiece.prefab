@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 0
   luggage: {fileID: 0}
+  shapesprite: {fileID: 1274531499435636}
   active: 0
   shape: 5
 --- !u!212 &212982599997472914

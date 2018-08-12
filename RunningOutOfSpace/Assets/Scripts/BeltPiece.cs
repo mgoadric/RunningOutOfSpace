@@ -20,7 +20,7 @@ public class BeltPiece : MonoBehaviour {
         {
             if (active) { 
                 shapesprite.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-}
+            }
             else
             {
                 shapesprite.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.3f);
@@ -34,17 +34,41 @@ public class BeltPiece : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (active && !luggage)
+        if (active)
         {
-            Debug.Log("Looking for luggage");
-            var lug = collision.gameObject.GetComponent<Luggage>();
-            if (lug && lug.level < level && (shape == Shape.RING || shape == lug.shape))
+            if (!luggage)
             {
-                collision.gameObject.transform.parent = transform;
-                luggage = collision.gameObject;
-                lug.NewBelt(this.gameObject);
-                Debug.Log("hit luggage!");
+                Debug.Log("Looking for luggage");
+                var lug = collision.gameObject.GetComponent<Luggage>();
+                if (lug && lug.level < level && (shape == Shape.RING || shape == lug.shape))
+                {
+                    collision.gameObject.transform.parent = transform;
+                    luggage = collision.gameObject;
+                    lug.NewBelt(this.gameObject);
+                    Debug.Log("hit luggage!");
+                }
+            }
+        } else {
+            var obp = collision.gameObject.GetComponent<BeltPiece>();
+            if (obp && obp.level < level && 
+                obp.luggage && obp.luggage.GetComponent<Luggage>().shape == shape) {
+                    active = true;
+
             }
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (active) {
+            var obp = collision.gameObject.GetComponent<BeltPiece>();
+            if (obp && obp.level < level &&
+                obp.luggage && obp.luggage.GetComponent<Luggage>().shape == shape)
+            {
+                active = false;
+            }
+
+        }
+    }
+
 }

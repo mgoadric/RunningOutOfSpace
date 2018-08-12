@@ -62,6 +62,8 @@ public class SplineController : MonoBehaviour
 
     void SetupMovers(Transform[] trans) {
         movers = new GameObject[trans.Length];
+        List<int> myshapes = new List<int>();
+
         for (int m = 0; m < movers.Length; m++)
         {
             movers[m] = (GameObject)Instantiate(BaseMover);

@@ -2729,7 +2729,7 @@ MonoBehaviour:
   - {fileID: 1879593148780812, guid: 71a75871d6cc64866a24eadbf773eff4, type: 2}
   - {fileID: 1360764624350220, guid: bf1a4d0807c1646ee8bfb01aa60ada06, type: 2}
   unclaimed: {fileID: 0}
-  speed: 2
+  speed: 3
 --- !u!61 &1779814241
 BoxCollider2D:
   m_ObjectHideFlags: 0
