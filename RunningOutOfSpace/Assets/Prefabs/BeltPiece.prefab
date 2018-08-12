@@ -106,7 +106,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 1.2
 --- !u!114 &114700091161682572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -121,6 +121,7 @@ MonoBehaviour:
   level: 0
   luggage: {fileID: 0}
   active: 0
+  shape: 5
 --- !u!212 &212982599997472914
 SpriteRenderer:
   m_ObjectHideFlags: 1

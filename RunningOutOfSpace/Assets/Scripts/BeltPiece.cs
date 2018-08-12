@@ -6,16 +6,26 @@ public class BeltPiece : MonoBehaviour {
 
     public int level;
     public GameObject luggage;
+    public GameObject shapesprite;
     public bool active = false;
+    public Shape shape;
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        		
+        if (shapesprite)
+        {
+            if (active) { 
+                shapesprite.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+}
+            else
+            {
+                shapesprite.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.3f);
+            }
+        }    		
 	}
 
     public void WipeOut() {
@@ -28,7 +38,7 @@ public class BeltPiece : MonoBehaviour {
         {
             Debug.Log("Looking for luggage");
             var lug = collision.gameObject.GetComponent<Luggage>();
-            if (lug && lug.level < level)
+            if (lug && lug.level < level && (shape == Shape.RING || shape == lug.shape))
             {
                 collision.gameObject.transform.parent = transform;
                 luggage = collision.gameObject;

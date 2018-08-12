@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum Shape {
-    CIRCLE, HEART, STAR, TRIANGLE, MED
+    CIRCLE, HEART, STAR, TRIANGLE, MED, RING
 }
 
 public class Luggage : MonoBehaviour {
@@ -43,7 +43,7 @@ public class Luggage : MonoBehaviour {
 
                 // Fraction of journey completed = current distance divided by total distance.
                 float fracJourney = distCovered / journeyLength;
-                Debug.Log(distCovered + ":" + fracJourney);
+                //Debug.Log(distCovered + ":" + fracJourney);
                 // Set our position as a fraction of the distance between the markers.
                 transform.position = Vector3.Lerp(lugStart, beltPiece.transform.position, fracJourney);
             }

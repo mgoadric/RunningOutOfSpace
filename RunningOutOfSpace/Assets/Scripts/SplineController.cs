@@ -11,6 +11,7 @@ public class SplineController : MonoBehaviour
     public GameObject SplineRoot;
     public GameObject BaseMover;
     private GameObject[] movers;
+    public GameObject[] shapes;
 	public float Duration = 10;
 	public eOrientationMode OrientationMode = eOrientationMode.NODE;
 	public eWrapMode WrapMode = eWrapMode.ONCE;
@@ -66,7 +67,16 @@ public class SplineController : MonoBehaviour
             movers[m] = (GameObject)Instantiate(BaseMover);
             movers[m].GetComponent<BeltPiece>().level = level;
             if (level > 1) {
-                movers[m].GetComponent<BeltPiece>().active = true;
+                //movers[m].GetComponent<BeltPiece>().active = true;
+                foreach (Transform childTransform in movers[m].transform)
+                {
+                    Destroy(childTransform.gameObject);
+                }
+                int which = Random.Range(0, 5);
+                movers[m].GetComponent<BeltPiece>().shape = (Shape)which;
+                var img = Instantiate<GameObject>(shapes[which]);
+                movers[m].GetComponent<BeltPiece>().shapesprite = img;
+                img.transform.parent = movers[m].transform;
             }
                 
             SplineInterpolator interp = movers[m].AddComponent<SplineInterpolator>();

@@ -6,7 +6,8 @@ public class LuggageMaker : MonoBehaviour
 {
 
     public GameObject[] shapes;
-    public int speed = 3;
+    public GameObject unclaimed;
+    public float speed = 1F;
     // Use this for initialization
     void Start()
     {
@@ -19,7 +20,7 @@ public class LuggageMaker : MonoBehaviour
         {
             yield return new WaitForSeconds(speed);
             int which = Random.Range(0, shapes.Length);
-            GameObject lug = Instantiate<GameObject>(shapes[which]);
+            unclaimed = Instantiate<GameObject>(shapes[which]);
 
         }
     }
