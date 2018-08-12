@@ -64,6 +64,11 @@ public class SplineController : MonoBehaviour
         for (int m = 0; m < movers.Length; m++)
         {
             movers[m] = (GameObject)Instantiate(BaseMover);
+            movers[m].GetComponent<BeltPiece>().level = level;
+            if (level > 1) {
+                movers[m].GetComponent<BeltPiece>().active = true;
+            }
+                
             SplineInterpolator interp = movers[m].AddComponent<SplineInterpolator>();
             SetupSplineInterpolator(interp, trans, m);
         }

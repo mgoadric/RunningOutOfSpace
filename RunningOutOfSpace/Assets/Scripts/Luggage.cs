@@ -18,7 +18,7 @@ public class Luggage : MonoBehaviour {
     // Using https://docs.unity3d.com/ScriptReference/Vector3.Lerp.html
 
     // Movement speed in units/sec.
-    public float speed = 0.10F;
+    public float speed = 1.0F;
     public bool settled = true;
 
 
@@ -31,28 +31,38 @@ public class Luggage : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (beltPiece && !settled && Vector3.Distance(beltPiece.transform.position, transform.position) > 0.01)
+        if (beltPiece)
         {
-            // Distance moved = time * speed.
-            float distCovered = (Time.time - startTime) * speed;
 
-            float journeyLength = Vector3.Distance(lugStart, beltPiece.transform.position);
+            if (!settled && Vector3.Distance(beltPiece.transform.position, transform.position) > 0.01)
+            {
+                // Distance moved = time * speed.
+                float distCovered = (Time.time - startTime) * speed;
 
-            // Fraction of journey completed = current distance divided by total distance.
-            float fracJourney = distCovered / journeyLength;
-            Debug.Log(distCovered + ":" + fracJourney);
-            // Set our position as a fraction of the distance between the markers.
-            transform.position = Vector3.Lerp(lugStart, beltPiece.transform.position, fracJourney);
-        } else {
-            transform.position = beltPiece.transform.position;
-            settled = true;
-        }		
+                float journeyLength = Vector3.Distance(lugStart, beltPiece.transform.position);
+
+                // Fraction of journey completed = current distance divided by total distance.
+                float fracJourney = distCovered / journeyLength;
+                Debug.Log(distCovered + ":" + fracJourney);
+                // Set our position as a fraction of the distance between the markers.
+                transform.position = Vector3.Lerp(lugStart, beltPiece.transform.position, fracJourney);
+            }
+            else
+            {
+                transform.position = beltPiece.transform.position;
+                settled = true;
+            }
+        }
 	}
 
     public void NewBelt(GameObject belt) {
+        if (beltPiece) {
+            beltPiece.GetComponent<BeltPiece>().WipeOut();
+        }
         beltPiece = belt;
         settled = false;
         startTime = Time.time;
+        level = beltPiece.GetComponent<BeltPiece>().level;
         lugStart = new Vector3() + transform.position;
     }
 }

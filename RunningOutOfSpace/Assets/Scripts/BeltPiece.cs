@@ -18,13 +18,17 @@ public class BeltPiece : MonoBehaviour {
         		
 	}
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void WipeOut() {
+        luggage = null;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (active && !luggage)
         {
             Debug.Log("Looking for luggage");
             var lug = collision.gameObject.GetComponent<Luggage>();
-            if (lug)
+            if (lug && lug.level < level)
             {
                 collision.gameObject.transform.parent = transform;
                 luggage = collision.gameObject;
