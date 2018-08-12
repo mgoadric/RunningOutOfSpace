@@ -186,6 +186,9 @@
 -define:ENABLE_BURST_AOT
 -define:UNITY_TEAM_LICENSE
 -define:ENABLE_VSTU
+'Assets/Scripts/BeltPiece.cs'
+'Assets/Scripts/Luggage.cs'
+'Assets/Scripts/LuggageMaker.cs'
 'Assets/Scripts/MathUtils.cs'
 'Assets/Scripts/SplineController.cs'
 'Assets/Scripts/SplineInterpolator.cs'

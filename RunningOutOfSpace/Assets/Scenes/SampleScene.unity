@@ -1045,7 +1045,7 @@ Transform:
   - {fileID: 20173981}
   - {fileID: 650991646}
   m_Father: {fileID: 888341401}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &563924526
 GameObject:
@@ -1590,10 +1590,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1779814239}
   - {fileID: 561006201}
   - {fileID: 1859695967}
   - {fileID: 1543303906}
-  - {fileID: 1779814239}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2193,7 +2193,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1543303906
 Transform:
   m_ObjectHideFlags: 0
@@ -2207,7 +2207,7 @@ Transform:
   - {fileID: 1286409376}
   - {fileID: 1193024201}
   m_Father: {fileID: 888341401}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1735753091
 GameObject:
@@ -2388,6 +2388,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1779814239}
   - component: {fileID: 1779814240}
+  - component: {fileID: 1779814241}
   m_Layer: 0
   m_Name: LuggageMaker
   m_TagString: Untagged
@@ -2406,7 +2407,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 888341401}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1779814240
 MonoBehaviour:
@@ -2425,6 +2426,31 @@ MonoBehaviour:
   - {fileID: 1358686294406830, guid: d09073232b1884e1a91aebf49d1090a3, type: 2}
   - {fileID: 1879593148780812, guid: 71a75871d6cc64866a24eadbf773eff4, type: 2}
   - {fileID: 1360764624350220, guid: bf1a4d0807c1646ee8bfb01aa60ada06, type: 2}
+--- !u!61 &1779814241
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1779814238}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -1}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1790933587
 GameObject:
   m_ObjectHideFlags: 0
@@ -2704,7 +2730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1859695967
 Transform:
   m_ObjectHideFlags: 0
@@ -2718,7 +2744,7 @@ Transform:
   - {fileID: 2007067806}
   - {fileID: 1790933588}
   m_Father: {fileID: 888341401}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1863366217
 GameObject:
