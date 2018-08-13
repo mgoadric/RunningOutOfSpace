@@ -63,6 +63,19 @@ public class SplineController : MonoBehaviour
     void SetupMovers(Transform[] trans) {
         movers = new GameObject[trans.Length];
         List<int> myshapes = new List<int>();
+        for (int i = 0; i < 5; i++) {
+            myshapes.Add(i);
+            myshapes.Add(i);
+        }
+        int n = myshapes.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = Random.Range(0, n + 1);
+            int value = myshapes[k];
+            myshapes[k] = myshapes[n];
+            myshapes[n] = value;
+        }
 
         for (int m = 0; m < movers.Length; m++)
         {
@@ -74,7 +87,7 @@ public class SplineController : MonoBehaviour
                 {
                     Destroy(childTransform.gameObject);
                 }
-                int which = Random.Range(0, 5);
+                int which = myshapes[m];
                 movers[m].GetComponent<BeltPiece>().shape = (Shape)which;
                 var img = Instantiate<GameObject>(shapes[which]);
                 movers[m].GetComponent<BeltPiece>().shapesprite = img;

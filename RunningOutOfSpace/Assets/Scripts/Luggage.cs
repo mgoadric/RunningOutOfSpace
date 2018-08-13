@@ -18,7 +18,7 @@ public class Luggage : MonoBehaviour {
     // Using https://docs.unity3d.com/ScriptReference/Vector3.Lerp.html
 
     // Movement speed in units/sec.
-    public float speed = 1.0F;
+    public float speed = 2.0F;
     public bool settled = true;
 
 

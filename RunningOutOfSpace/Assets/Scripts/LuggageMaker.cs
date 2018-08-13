@@ -20,7 +20,11 @@ public class LuggageMaker : MonoBehaviour
         {
             yield return new WaitForSeconds(speed);
             int which = Random.Range(0, shapes.Length);
-            unclaimed = Instantiate<GameObject>(shapes[which]);
+            if (!unclaimed.GetComponent<BeltPiece>().luggage)
+            {
+                unclaimed.GetComponent<BeltPiece>().luggage = Instantiate<GameObject>(shapes[which]);
+                unclaimed.GetComponent<BeltPiece>().luggage.GetComponent<Luggage>().NewBelt(unclaimed);
+            }
 
         }
     }
@@ -37,15 +41,17 @@ public class LuggageMaker : MonoBehaviour
         {
             Debug.Log("Turning on.");
             bp.active = true;
+            bp.mostRecent = unclaimed;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         var bp = collision.gameObject.GetComponent<BeltPiece>();
-        if (bp && bp.level == 1)
+        if (bp && bp.level == 1 && bp.active)
         {
             Debug.Log("Turning off.");
             bp.active = false;
+            bp.mostRecent = null;
         }
     }
 }
