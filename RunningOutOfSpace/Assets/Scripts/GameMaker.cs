@@ -8,6 +8,7 @@ public class GameMaker : MonoBehaviour {
 
     public bool playing;
     public int score;
+    public int time;
     public GameObject luggagemaker;
     public GameObject c1;
     public GameObject c2;

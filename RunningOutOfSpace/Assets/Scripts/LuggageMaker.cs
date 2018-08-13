@@ -33,9 +33,23 @@ public class LuggageMaker : MonoBehaviour
             {
                 unclaimed.GetComponent<BeltPiece>().luggage = Instantiate<GameObject>(shapes[which]);
                 unclaimed.GetComponent<BeltPiece>().luggage.GetComponent<Luggage>().NewBelt(unclaimed);
+                GameMaker.S.time = 10;
+                StopCoroutine("Countdown");
+
+                StartCoroutine("Countdown");
             }
 
         }
+    }
+
+    IEnumerator Countdown() {
+        while (GameMaker.S.time > 0) 
+        {
+            yield return new WaitForSeconds(1);
+            GameMaker.S.time -= 1;
+
+        }
+        GameMaker.S.StopGame(); 
     }
 
     // Update is called once per frame
