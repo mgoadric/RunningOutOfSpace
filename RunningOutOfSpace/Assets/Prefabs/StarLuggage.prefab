@@ -152,6 +152,7 @@ MonoBehaviour:
   beltPiece: {fileID: 0}
   shape: 2
   level: 0
+  score: {fileID: 1312404786788570, guid: a7f214e9fd4db4b8bb946febdb0f524e, type: 2}
   lugStart: {x: 0, y: 0, z: 0}
   startTime: 0
   speed: 2

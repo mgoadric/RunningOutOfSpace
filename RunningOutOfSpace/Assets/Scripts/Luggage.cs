@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public enum Shape {
@@ -12,6 +13,8 @@ public class Luggage : MonoBehaviour {
     public GameObject beltPiece;
     public Shape shape;
     public int level;
+    public GameObject score;
+
 
     public Vector3 lugStart;
     public float startTime;
@@ -51,6 +54,10 @@ public class Luggage : MonoBehaviour {
             {
                 transform.position = beltPiece.transform.position;
                 settled = true;
+                if (level == 4) {
+                    GameMaker.S.IncScore();
+                    Destroy(this.gameObject);
+                }
             }
         }
 	}

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BeltPiece : MonoBehaviour {
@@ -7,8 +8,8 @@ public class BeltPiece : MonoBehaviour {
     public int level;
     public GameObject luggage;
     public GameObject shapesprite;
+    public TextMeshPro score;
     public bool active = false;
-    public int hits = 0;
     public GameObject mostRecent;
     public Shape shape;
 

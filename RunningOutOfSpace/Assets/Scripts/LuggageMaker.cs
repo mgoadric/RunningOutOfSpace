@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class LuggageMaker : MonoBehaviour
@@ -11,7 +12,15 @@ public class LuggageMaker : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        StartCoroutine(MakeLuggage());
+        //StartCoroutine("MakeLuggage");
+    }
+
+    public void TurnOn() {
+        StartCoroutine("MakeLuggage");       
+    }
+
+    public void TurnOff() {
+        StopCoroutine("MakeLuggage");
     }
 
     IEnumerator MakeLuggage()

@@ -185,7 +185,7 @@ public class SplineController : MonoBehaviour
 	/// <summary>
 	/// Starts the interpolation
 	/// </summary>
-	void FollowSpline()
+	public void FollowSpline()
 	{
 		if (mTransforms.Length > 0)
 		{
@@ -197,4 +197,10 @@ public class SplineController : MonoBehaviour
             }
 		}
 	}
+
+    public void KillBelt() {
+        foreach (GameObject m in movers) {
+            Destroy(m);
+        }
+    }
 }
