@@ -9,6 +9,7 @@ public class LuggageMaker : MonoBehaviour
     public GameObject[] shapes;
     public GameObject unclaimed;
     public float speed = 1F;
+    public static int TIMELEFT = 5;
     public AudioClip luggageDrop;
     public AudioClip timer;
     public AudioClip gameover;
@@ -31,7 +32,9 @@ public class LuggageMaker : MonoBehaviour
 
     IEnumerator MakeLuggage()
     {
-        yield return new WaitForSeconds(0.2f);
+        GameMaker.S.time = TIMELEFT;
+
+        yield return new WaitForSeconds(2f);
         while (true)
         {
             int which = Random.Range(0, shapes.Length);
@@ -39,7 +42,7 @@ public class LuggageMaker : MonoBehaviour
             {
                 unclaimed.GetComponent<BeltPiece>().luggage = Instantiate<GameObject>(shapes[which]);
                 unclaimed.GetComponent<BeltPiece>().luggage.GetComponent<Luggage>().NewBelt(unclaimed);
-                GameMaker.S.time = 10;
+                GameMaker.S.time = TIMELEFT;
                 StopCoroutine("Countdown");
 
                 StartCoroutine("Countdown");

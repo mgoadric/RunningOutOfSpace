@@ -13,6 +13,7 @@ public class GameMaker : MonoBehaviour {
     public GameObject c1;
     public GameObject c2;
     public GameObject c3;
+    public GameObject startbutton;
 
     // Use this for initialization
     void Awake()
@@ -27,7 +28,11 @@ public class GameMaker : MonoBehaviour {
 	}
 
     public void GoGame() {
-        StartCoroutine("PlayTheGame");
+        startbutton.SetActive(false);
+        luggagemaker.GetComponent<LuggageMaker>().TurnOn();
+        c1.GetComponent<SplineController>().FollowSpline();
+        c2.GetComponent<SplineController>().FollowSpline();
+        c3.GetComponent<SplineController>().FollowSpline();
         playing = true;
         score = 0;
         GetComponent<AudioSource>().loop = true;
@@ -35,7 +40,7 @@ public class GameMaker : MonoBehaviour {
     }
 
     public void StopGame() {
-        StopCoroutine("PlayTheGame");
+        startbutton.SetActive(true);
         playing = false;
         luggagemaker.GetComponent<LuggageMaker>().TurnOff();
         c1.GetComponent<SplineController>().KillBelt();
@@ -55,12 +60,4 @@ public class GameMaker : MonoBehaviour {
 	void Update () {
 		
 	}
-
-    IEnumerator PlayTheGame() {
-        yield return new WaitForSeconds(2);
-        luggagemaker.GetComponent<LuggageMaker>().TurnOn();
-        c1.GetComponent<SplineController>().FollowSpline();
-        c2.GetComponent<SplineController>().FollowSpline();
-        c3.GetComponent<SplineController>().FollowSpline();
-    }
 }
