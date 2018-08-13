@@ -22,10 +22,16 @@ public class BeltPiece : MonoBehaviour {
         {
             if (active && mostRecent && mostRecent.gameObject.GetComponent<BeltPiece>().luggage) { 
                 shapesprite.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                LineRenderer line = GetComponent<LineRenderer>();
+                line.enabled = true;
+                line.SetPosition(0, transform.position);
+                line.SetPosition(1, mostRecent.gameObject.GetComponent<BeltPiece>().luggage.transform.position);
             }
             else
             {
                 shapesprite.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.3f);
+                LineRenderer line = GetComponent<LineRenderer>();
+                line.enabled = false;
             }
         }    		
 	}

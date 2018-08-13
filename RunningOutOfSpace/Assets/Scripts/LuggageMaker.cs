@@ -37,7 +37,7 @@ public class LuggageMaker : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var bp = collision.gameObject.GetComponent<BeltPiece>();
-        if (bp && bp.level == 1)
+        if (bp && bp.level == 1 && !bp.luggage)
         {
             Debug.Log("Turning on.");
             bp.active = true;
