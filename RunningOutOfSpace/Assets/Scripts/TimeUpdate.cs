@@ -12,8 +12,8 @@ public class TimeUpdate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        TextMeshProUGUI gt = this.GetComponent<TextMeshProUGUI>();
-        gt.SetText("Time Left: " + GameMaker.S.time);      
+        TextMeshPro gt = this.GetComponent<TextMeshPro>();
+        gt.SetText("" + GameMaker.S.time);      
 		
 	}
 }
