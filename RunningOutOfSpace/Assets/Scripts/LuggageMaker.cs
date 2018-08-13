@@ -9,10 +9,16 @@ public class LuggageMaker : MonoBehaviour
     public GameObject[] shapes;
     public GameObject unclaimed;
     public float speed = 1F;
+    public AudioClip luggageDrop;
+    public AudioClip timer;
+    public AudioClip gameover;
+    public AudioSource maudio;
+
     // Use this for initialization
     void Start()
     {
         //StartCoroutine("MakeLuggage");
+        maudio = GetComponent<AudioSource>();
     }
 
     public void TurnOn() {
@@ -25,9 +31,9 @@ public class LuggageMaker : MonoBehaviour
 
     IEnumerator MakeLuggage()
     {
+        yield return new WaitForSeconds(0.2f);
         while (true)
         {
-            yield return new WaitForSeconds(speed);
             int which = Random.Range(0, shapes.Length);
             if (!unclaimed.GetComponent<BeltPiece>().luggage)
             {
@@ -37,8 +43,10 @@ public class LuggageMaker : MonoBehaviour
                 StopCoroutine("Countdown");
 
                 StartCoroutine("Countdown");
+                //GetComponent<AudioSource>().Play();
+                maudio.PlayOneShot(luggageDrop, 0.7F);
             }
-
+            yield return new WaitForSeconds(speed);
         }
     }
 
@@ -47,14 +55,21 @@ public class LuggageMaker : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             GameMaker.S.time -= 1;
+            maudio.PlayOneShot(timer, 0.7F);
 
         }
         GameMaker.S.StopGame(); 
+        maudio.PlayOneShot(gameover, 0.7F);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!unclaimed.GetComponent<BeltPiece>().luggage)
+        {
+            StopCoroutine("Countdown");
+
+        }
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -8,7 +8,6 @@ public class BeltPiece : MonoBehaviour {
     public int level;
     public GameObject luggage;
     public GameObject shapesprite;
-    public TextMeshPro score;
     public bool active = false;
     public GameObject mostRecent;
     public Shape shape;
@@ -50,6 +49,8 @@ public class BeltPiece : MonoBehaviour {
                 Debug.Log("hit luggage!");
                 active = false;
                 mostRecent = null;
+                GetComponent<AudioSource>().Play();
+
             }
         }
     }

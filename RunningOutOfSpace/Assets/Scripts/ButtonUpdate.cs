@@ -12,7 +12,7 @@ public class ButtonUpdate : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (GameMaker.S.playing) {
-            gameObject.SetActive(false);
+            //gameObject;
         }
 	}
 }

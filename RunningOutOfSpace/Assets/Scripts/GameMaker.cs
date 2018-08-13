@@ -30,6 +30,8 @@ public class GameMaker : MonoBehaviour {
         StartCoroutine("PlayTheGame");
         playing = true;
         score = 0;
+        GetComponent<AudioSource>().loop = true;
+        GetComponent<AudioSource>().Play();
     }
 
     public void StopGame() {
@@ -39,6 +41,8 @@ public class GameMaker : MonoBehaviour {
         c1.GetComponent<SplineController>().KillBelt();
         c2.GetComponent<SplineController>().KillBelt();
         c3.GetComponent<SplineController>().KillBelt();
+        GetComponent<AudioSource>().Stop();
+
     }
 	
     public void IncScore() {
