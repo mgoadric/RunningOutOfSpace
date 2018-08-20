@@ -46,7 +46,7 @@ public class BeltPiece : MonoBehaviour {
                 lug.transform.parent = transform;
                 luggage = lug;
                 luggage.GetComponent<Luggage>().NewBelt(this.gameObject);
-                Debug.Log("hit luggage!");
+                //Debug.Log("hit luggage!");
                 active = false;
                 mostRecent = null;
                 GetComponent<AudioSource>().Play();

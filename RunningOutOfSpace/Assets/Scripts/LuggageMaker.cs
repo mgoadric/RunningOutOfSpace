@@ -7,6 +7,7 @@ public class LuggageMaker : MonoBehaviour
 {
 
     public GameObject[] shapes;
+    public bool[] chosen;
     public GameObject unclaimed;
     public float speed = 1F;
     public static int TIMELEFT = 5;
@@ -18,6 +19,7 @@ public class LuggageMaker : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        chosen = new bool[shapes.Length];
         //StartCoroutine("MakeLuggage");
         maudio = GetComponent<AudioSource>();
     }
@@ -28,6 +30,11 @@ public class LuggageMaker : MonoBehaviour
 
     public void TurnOff() {
         StopCoroutine("MakeLuggage");
+        var lug = unclaimed.GetComponent<BeltPiece>().luggage;
+        if (lug) {
+            Destroy(lug.gameObject);
+            unclaimed.GetComponent<BeltPiece>().luggage = null;
+        }
     }
 
     IEnumerator MakeLuggage()
@@ -37,9 +44,25 @@ public class LuggageMaker : MonoBehaviour
         yield return new WaitForSeconds(2f);
         while (true)
         {
-            int which = Random.Range(0, shapes.Length);
+            bool all = true;
+            for (int i = 0; i < chosen.Length; i++) {
+                if (!chosen[i]){
+                    all = false;
+                    break;
+                }
+            }
+            if (all) {
+                chosen = new bool[shapes.Length];
+            }
+            int which = 0;
+            while (chosen[which])
+            {
+                which = Random.Range(0, shapes.Length);
+            }
             if (!unclaimed.GetComponent<BeltPiece>().luggage)
             {
+                chosen[which] = true;
+
                 unclaimed.GetComponent<BeltPiece>().luggage = Instantiate<GameObject>(shapes[which]);
                 unclaimed.GetComponent<BeltPiece>().luggage.GetComponent<Luggage>().NewBelt(unclaimed);
                 GameMaker.S.time = TIMELEFT;
@@ -80,7 +103,7 @@ public class LuggageMaker : MonoBehaviour
         var bp = collision.gameObject.GetComponent<BeltPiece>();
         if (bp && bp.level == 1 && !bp.luggage)
         {
-            Debug.Log("Turning on.");
+            //Debug.Log("Turning on.");
             bp.active = true;
             bp.mostRecent = unclaimed;
         }
@@ -90,7 +113,7 @@ public class LuggageMaker : MonoBehaviour
         var bp = collision.gameObject.GetComponent<BeltPiece>();
         if (bp && bp.level == 1 && bp.active)
         {
-            Debug.Log("Turning off.");
+            //Debug.Log("Turning off.");
             bp.active = false;
             bp.mostRecent = null;
         }
