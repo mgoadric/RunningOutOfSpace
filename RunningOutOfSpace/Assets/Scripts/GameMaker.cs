@@ -8,6 +8,7 @@ public class GameMaker : MonoBehaviour {
 
     public bool playing;
     public int score;
+    public int highscore;
     public int time;
     public GameObject luggagemaker;
     public GameObject c1;
@@ -30,6 +31,9 @@ public class GameMaker : MonoBehaviour {
     public void GoGame() {
         startbutton.SetActive(false);
         luggagemaker.GetComponent<LuggageMaker>().TurnOn();
+        c1.GetComponent<SplineController>().KillBelt();
+        c2.GetComponent<SplineController>().KillBelt();
+        c3.GetComponent<SplineController>().KillBelt();
         c1.GetComponent<SplineController>().FollowSpline();
         c2.GetComponent<SplineController>().FollowSpline();
         c3.GetComponent<SplineController>().FollowSpline();
@@ -43,16 +47,20 @@ public class GameMaker : MonoBehaviour {
         startbutton.SetActive(true);
         playing = false;
         luggagemaker.GetComponent<LuggageMaker>().TurnOff();
-        c1.GetComponent<SplineController>().KillBelt();
-        c2.GetComponent<SplineController>().KillBelt();
-        c3.GetComponent<SplineController>().KillBelt();
+        c1.GetComponent<SplineController>().DeactivateBelt();
+        c2.GetComponent<SplineController>().DeactivateBelt();
+        c3.GetComponent<SplineController>().DeactivateBelt();
         GetComponent<AudioSource>().Stop();
+        if (score > highscore)
+        {
+            highscore = score;
+        }
 
     }
 	
-    public void IncScore() {
+    public void IncScore(int x) {
         lock (this) {
-            score += 1;
+            score += x;
         }
     }
 

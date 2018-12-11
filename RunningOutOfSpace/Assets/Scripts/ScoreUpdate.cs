@@ -13,6 +13,6 @@ public class ScoreUpdate : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         TextMeshProUGUI gt = this.GetComponent<TextMeshProUGUI>();
-        gt.SetText("Score: " + GameMaker.S.score);		
+        gt.SetText("Score:\n" + GameMaker.S.score);		
 	}
 }

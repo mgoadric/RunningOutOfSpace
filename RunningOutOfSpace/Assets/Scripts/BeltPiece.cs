@@ -57,6 +57,14 @@ public class BeltPiece : MonoBehaviour {
 
     public void WipeOut() {
         luggage = null;
+        if (mostRecent) {
+            var obp = mostRecent.GetComponent<BeltPiece>();
+            if (obp && obp.level < level &&
+                obp.luggage && obp.luggage.GetComponent<Luggage>().shape == shape)
+            {
+                active = true;
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)

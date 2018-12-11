@@ -50,6 +50,7 @@ public class SplineController : MonoBehaviour
 	void Start()
 	{
         //		mSplineInterp = GetComponent(typeof(SplineInterpolator)) as SplineInterpolator;
+        movers = new GameObject[0];
 
         mTransforms = GetTransforms();
 
@@ -198,9 +199,19 @@ public class SplineController : MonoBehaviour
 		}
 	}
 
-    public void KillBelt() {
-        foreach (GameObject m in movers) {
+    public void KillBelt()
+    {
+        foreach (GameObject m in movers)
+        {
             Destroy(m);
+        }
+    }
+
+    public void DeactivateBelt()
+    {
+        foreach (GameObject m in movers)
+        {
+            m.GetComponent<CircleCollider2D>().enabled = false;
         }
     }
 }

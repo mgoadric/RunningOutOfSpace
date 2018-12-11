@@ -53,9 +53,13 @@ public class Luggage : MonoBehaviour {
             else
             {
                 transform.position = beltPiece.transform.position;
-                settled = true;
+                if (!settled)
+                {
+                    settled = true;
+                    GameMaker.S.IncScore((int)Mathf.Pow(10, level - 1));
+                }
                 if (level == 4) {
-                    GameMaker.S.IncScore();
+
                     Destroy(this.gameObject);
                 }
             }
