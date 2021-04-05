@@ -214,4 +214,16 @@ public class SplineController : MonoBehaviour
             m.GetComponent<CircleCollider2D>().enabled = false;
         }
     }
+
+    public bool Full()
+    {
+        foreach (GameObject m in movers)
+        {
+            if (m.GetComponent<BeltPiece>().luggage == null)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }

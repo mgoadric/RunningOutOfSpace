@@ -36,22 +36,28 @@ public class BeltPiece : MonoBehaviour {
         }    		
 	}
 
+    public void TransferLuggage()
+    {
+        Debug.Log("Preparing for transfer");
+        var lug = mostRecent.gameObject.GetComponent<BeltPiece>().luggage;
+        if (lug)
+        {
+            Debug.Log("Transferring!");
+            lug.transform.parent = transform;
+            luggage = lug;
+            luggage.GetComponent<Luggage>().NewBelt(this.gameObject);
+            active = false;
+            mostRecent = null;
+            GetComponent<AudioSource>().Play();
+
+        }
+    }
+
     private void OnMouseDown()
     {
         if (active && mostRecent)
         {
-            var lug = mostRecent.gameObject.GetComponent<BeltPiece>().luggage;
-            if (lug)
-            {
-                lug.transform.parent = transform;
-                luggage = lug;
-                luggage.GetComponent<Luggage>().NewBelt(this.gameObject);
-                //Debug.Log("hit luggage!");
-                active = false;
-                mostRecent = null;
-                GetComponent<AudioSource>().Play();
-
-            }
+            TransferLuggage();
         }
     }
 
@@ -76,6 +82,8 @@ public class BeltPiece : MonoBehaviour {
             active = true;
             mostRecent = collision.gameObject;
         }
+
+
 
         //if (active)
         //{
