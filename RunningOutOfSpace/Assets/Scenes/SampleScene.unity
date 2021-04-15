@@ -2170,7 +2170,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 5dd49b3eacc540408c98eee0de38e0f1, type: 3}
+    m_Font: {fileID: 12800000, guid: d1a4c68a86ef24b77b1b23ec48daa84c, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -5588,7 +5588,6 @@ MonoBehaviour:
   unclaimed: {fileID: 770471171}
   speed: 3
   luggageDrop: {fileID: 8300000, guid: 660d8d2014b5c4d129c10bf6f6c75827, type: 3}
-  timer: {fileID: 8300000, guid: 356ff11abcc534356a9a5db44f0ed937, type: 3}
   gameover: {fileID: 8300000, guid: 2dcd270cb1868449a8be022fc92c147d, type: 3}
   maudio: {fileID: 0}
   firstBelt: {fileID: 20173977}
@@ -6577,7 +6576,6 @@ MonoBehaviour:
   playing: 0
   score: 0
   highscore: 0
-  time: 0
   luggagemaker: {fileID: 1779814238}
   c1: {fileID: 20173977}
   c2: {fileID: 2007067805}
