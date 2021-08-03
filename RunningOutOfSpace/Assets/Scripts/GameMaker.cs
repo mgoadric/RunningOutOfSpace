@@ -59,7 +59,10 @@ public class GameMaker : MonoBehaviour {
 	
     public void IncScore(int x) {
         lock (this) {
-            score += x;
+            if (playing)
+            {
+                score += x;
+            }
         }
     }
 

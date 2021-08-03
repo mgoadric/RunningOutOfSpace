@@ -170,7 +170,7 @@ MonoBehaviour:
   SplineRoot: {fileID: 650991642}
   BaseMover: {fileID: 1822309530309840, guid: 08cd0e1874c454225b9022e755bcedb3, type: 3}
   shapes: []
-  Duration: 20
+  Duration: 15
   OrientationMode: 0
   WrapMode: 1
   AutoStart: 0
@@ -1327,7 +1327,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 60}
+  m_SizeDelta: {x: 100, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &261594111
 MonoBehaviour:
@@ -2171,10 +2171,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d1a4c68a86ef24b77b1b23ec48daa84c, type: 3}
-    m_FontSize: 40
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -4003,7 +4003,7 @@ MonoBehaviour:
   - {fileID: 1319355575929042, guid: 4b5d27956dde2484a96ec2c02f692732, type: 3}
   - {fileID: 1758227359069704, guid: 57107f3fc89d64f7bbcefaa1a0d253c4, type: 3}
   - {fileID: 1216018094987088, guid: 4ba59750d7d1542499896ee2c31b5e65, type: 3}
-  Duration: 40
+  Duration: 30
   OrientationMode: 0
   WrapMode: 1
   AutoStart: 0
@@ -5586,7 +5586,7 @@ MonoBehaviour:
   - {fileID: 1360764624350220, guid: bf1a4d0807c1646ee8bfb01aa60ada06, type: 3}
   chosen: 
   unclaimed: {fileID: 770471171}
-  speed: 3
+  speed: 1
   luggageDrop: {fileID: 8300000, guid: 660d8d2014b5c4d129c10bf6f6c75827, type: 3}
   gameover: {fileID: 8300000, guid: 2dcd270cb1868449a8be022fc92c147d, type: 3}
   maudio: {fileID: 0}
@@ -7065,7 +7065,7 @@ MonoBehaviour:
   - {fileID: 1319355575929042, guid: 4b5d27956dde2484a96ec2c02f692732, type: 3}
   - {fileID: 1758227359069704, guid: 57107f3fc89d64f7bbcefaa1a0d253c4, type: 3}
   - {fileID: 1216018094987088, guid: 4ba59750d7d1542499896ee2c31b5e65, type: 3}
-  Duration: 30
+  Duration: 20
   OrientationMode: 0
   WrapMode: 1
   AutoStart: 0
