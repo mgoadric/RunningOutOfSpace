@@ -15,6 +15,8 @@ public class GameMaker : MonoBehaviour {
     public GameObject c3;
     public GameObject startbutton;
 
+    public GameObject overlay;
+
     // Use this for initialization
     void Awake()
     {
@@ -29,6 +31,7 @@ public class GameMaker : MonoBehaviour {
 
     public void GoGame() {
         startbutton.SetActive(false);
+        overlay.SetActive(false);
         luggagemaker.GetComponent<LuggageMaker>().TurnOn();
         c1.GetComponent<SplineController>().KillBelt();
         c2.GetComponent<SplineController>().KillBelt();
@@ -44,6 +47,7 @@ public class GameMaker : MonoBehaviour {
 
     public void StopGame() {
         startbutton.SetActive(true);
+        overlay.SetActive(true);
         playing = false;
         luggagemaker.GetComponent<LuggageMaker>().TurnOff();
         c1.GetComponent<SplineController>().DeactivateBelt();
@@ -65,6 +69,8 @@ public class GameMaker : MonoBehaviour {
             }
         }
     }
+
+     
 
 	// Update is called once per frame
 	void Update () {
