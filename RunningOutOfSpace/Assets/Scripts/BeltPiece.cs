@@ -26,6 +26,8 @@ public class BeltPiece : MonoBehaviour {
                 line.enabled = true;
                 line.SetPosition(0, transform.position);
                 line.SetPosition(1, mostRecent.gameObject.GetComponent<BeltPiece>().luggage.transform.position);
+                // For Super Speed AI testing
+                //TransferLuggage();
             }
             else
             {
